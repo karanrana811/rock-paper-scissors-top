@@ -1,5 +1,3 @@
-
-
 const getComputerChoice = () => {
     const randomNum = Math.floor(Math.random() * 3)
     if (randomNum === 0) {
@@ -43,7 +41,6 @@ const game = () => {
 
     for (let i=0 ; i < 5 ; i++){
         const result = playGame(prompt('What do you choose?').toUpperCase(), getComputerChoice());
-        // console.log(i, computerWins, playerWins)
         if (result === 'Player wins'){
             playerWins++;
             console.log('Player wins this round')
