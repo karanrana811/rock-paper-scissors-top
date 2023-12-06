@@ -37,4 +37,29 @@ const playGame = (playerChoice, computerChoice) => {
     }
 }
 
-console.log(playGame(prompt('What do you choose?').toUpperCase(), getComputerChoice()));
+const game = () => {
+    let computerWins = 0;
+    let playerWins = 0;
+
+    for (let i=0 ; i < 5 ; i++){
+        const result = playGame(prompt('What do you choose?').toUpperCase(), getComputerChoice());
+        // console.log(i, computerWins, playerWins)
+        if (result === 'Player wins'){
+            playerWins++;
+            console.log('Player wins this round')
+        } else if ( result === 'Computer wins') {
+            computerWins++;
+            console.log('Computer wins this round');
+        } else if ( result === 'Something went wrong!') {
+            i--;
+            console.log('Please provide a valid choice between rock, paper and scissors or scissor')
+        } else {
+            i--;
+            console.log('this round is a draw')
+        }
+    }
+
+    return playerWins > computerWins ? `Player wins` : 'Computer Wins';
+}
+
+console.log(game());
